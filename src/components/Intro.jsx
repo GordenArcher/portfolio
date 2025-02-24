@@ -5,17 +5,17 @@ const Intro = () => {
   return (
     <div id="home" className="w-full h-full relative">
       <div className="md:!pt-15 flex flex-col md:flex-row gap-2">
-        <div className="w-full h-full relative flex flex-col gap-[30px] ">
-            <div className="w-full h-full relative">
+        <div className="w-full h-full relative flex flex-col gap-[50px] md:gap-[30px] ">
+            <div className="w-full h-full relative" data-aos="fade-up">
                 <h2 className="text-4xl md:text-7xl text-slate-700 !font-extrabold">Crafting Seamless Digital Experiences</h2>
             </div>
 
-            <div className="w-full text-xl text-slate-400 !font-extralight">
+            <div className="w-full text-xl text-slate-400 !font-extralight" data-aos="fade-up">
                 <p>Designing, building, and deploying dynamic web applications that solve real-world problems with clean code and innovative solutions.</p>
             </div>
 
             <div className="relative">
-                <div className="w-full h-full relative flex flex-col gap-10 md:flex-row">
+                <div className="w-full h-full relative flex flex-col gap-10 md:flex-row" data-aos="fade-up">
                     <div className="w-full h-full">
                         <Link>
                             <button className="w-full h-[55px] text-xl !font-bold text-slate-100 bg-slate-700 border-0 cursor-pointer transition-all duration-500 ease hover:-translate-y-2 hover:text-slate-700 hover:bg-transparent hover:border-1 rounded-4xl">View My work</button>
@@ -36,19 +36,19 @@ const Intro = () => {
                 </div>
             </div>
             <div className="w-full h-full flex flex-col justify-between gap-5 md:gap-10 md:flex-row md:items-center">
-                <div className="relative">
+                <div className="relative" data-aos="fade-up">
                     <div className="h-full w-full items-center flex flex-col gap-2">
                         <div className="!font-extrabold text-[#b05cff] text-xl md:text-2xl">2+</div>
                         <div className="!font-bold text-slate-700">Years Experience</div>
                     </div>
                 </div>
-                <div className="relative">
+                <div className="relative" data-aos="fade-up">
                     <div className="h-full flex items-center flex-col gap-2">
                         <div className="!font-extrabold text-[#b05cff] text-xl md:text-2xl">7</div>
                         <div className="!font-bold text-slate-700">Projects Completed</div>
                     </div>
                 </div>
-                <div className="relative">
+                <div className="relative" data-aos="fade-up">
                     <div className="h-full flex items-center flex-col gap-2">
                         <div className="!font-extrabold text-[#b05cff] text-xl md:text-2xl">10</div>
                         <div className="!font-bold text-slate-700">Happy Clients</div>
@@ -57,8 +57,8 @@ const Intro = () => {
             </div>
         </div>
 
-        <div className="w-full h-full">
-            <div className="!p-20">
+        <div className="w-full h-full" data-aos="fade-up">
+            <div className="relative !p-5 md:!p-20">
                 <img className="w-full h-full" src={HeroImage} alt="hero image" role="image" aria-description="home page image as dev" />
             </div>
         </div>

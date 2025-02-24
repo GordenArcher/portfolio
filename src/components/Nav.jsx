@@ -25,27 +25,27 @@ const Nav = () => {
                 <div className={`absolute transition-all duration-300 ${showSide ? 'translate-x-0' : '-translate-x-100'} md:translate-0 !p-10 md:!p-[0] z-10 w-[60%] bg-slate-300 md:bg-transparent h-[100vh] md:w-min md:h-0 left-0 top-0 md:relative`}> 
                     <ul className="w-full flex gap-15 md:gap-5 md:flex-row flex-col md:items-center" role="naviagation">
                         <li className="">
-                            <Link className="!font-bold text-[#b05cff] transition-all hover:text-slate-500" to={"#home"} >Home</Link>
+                            <Link className="!font-bold text-[#b05cff] !p-2 rounded transition-all hover:text-slate-500 hover:bg-slate-100 " to={"#home"} >Home</Link>
                         </li>
 
                         <li className="">
-                            <Link className="!font-bold text-[#b05cff] transition-all hover:text-slate-500" to={"#about"} >About</Link>
+                            <Link className="!font-bold text-[#b05cff] !p-2 rounded transition-all hover:text-slate-500 hover:bg-slate-100 " to={"#about"} >About</Link>
                         </li>
 
                         <li className="">
-                            <Link className="!font-bold text-[#b05cff] transition-all hover:text-[slate-500]" to={"#resume"} >Resume</Link>
+                            <Link className="!font-bold text-[#b05cff] !p-2 rounded transition-all hover:text-slate-500 hover:bg-slate-100 " to={"#resume"} >Resume</Link>
                         </li>
 
                         <li className="">
-                            <Link className="!font-bold text-[#b05cff] transition-all hover:text-slate-500" to={"#portfolio"} >Portfolio</Link>
+                            <Link className="!font-bold text-[#b05cff] !p-2 rounded transition-all hover:text-slate-500 hover:bg-slate-100 " to={"#portfolio"} >Portfolio</Link>
                         </li>
 
                         <li className="">
-                            <Link className="!font-bold text-[#b05cff] transition-all hover:text-slate-500" to={"#services"} >Services</Link>
+                            <Link className="!font-bold text-[#b05cff] !p-2 rounded transition-all hover:text-slate-500 hover:bg-slate-100 "  to={"#services"} >Services</Link>
                         </li>
 
                         <li className="">
-                            <Link className="!font-bold text-[#b05cff] transition-all hover:text-slate-500" to={"#contact"} >Contact</Link>
+                            <Link className="!font-bold text-[#b05cff] !p-2 rounded transition-all hover:text-slate-500 hover:bg-slate-100 " to={"#contact"} >Contact</Link>
                         </li>
                     </ul>
 
@@ -54,11 +54,11 @@ const Nav = () => {
                     </div>
                 </div>
 
-                <div className="relative !p-[20px] hidden md:block">
+                <div className="relative !p-[20px] hidden md:block" data-aos="fade-left">
                     <SocialLinks />
                 </div>
 
-                <div className="relative !p-[20px] md:hidden" >
+                <div className="relative !p-[20px] md:hidden" data-aos="fade-left">
                     <HamburgerToggle  setshowSide={setshowSide} />
                 </div>
             </div>
