@@ -1,79 +1,68 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const ToTop = () => {
+const ToTp = () => {
   return (
     <StyledWrapper>
-      <Link>
-        <button data-aos="fade-up" className="button" onClick={() => document.getElementById("home").scrollIntoView({ behavior: "smooth" })}>
-            <svg className="svgIcon" viewBox="0 0 384 512">
-            <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
-            </svg>
-        </button>
-      </Link>
+      <button className="Btn" data-aos="fade-up" onClick={() => document.getElementById("home").scrollIntoView({ behavior: "smooth" })}>
+        <svg height="1.2em" className="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" /></svg>
+        <p className="text">Back to Top</p>
+      </button>
     </StyledWrapper>
   );
 }
 
 const StyledWrapper = styled.div`
-  .button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgb(20, 20, 20);
-    border: none;
-    font-weight: 600;
+  .Btn {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(#b05cff, #39fad7);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+    border-radius: 50%;
     cursor: pointer;
-    transition-duration: 0.3s;
-    overflow: hidden;
     position: fixed;
-    bottom: 20px;
     right: 20px;
+    bottom: 150px;
+    border: none;
   }
 
-  .svgIcon {
-    width: 12px;
-    transition-duration: 0.3s;
-    position: relative;
-  }
-
-  .svgIcon path {
+  .arrow path {
     fill: white;
   }
 
-  .button:hover {
-    width: 140px;
-    border-radius: 50px;
-    transition-duration: 0.3s;
-    background-color: rgb(181, 160, 255);
-    align-items: center;
-  }
-
-  .button:hover .svgIcon {
-    /* width: 20px; */
-    transition-duration: 0.3s;
-    transform: translateY(-200%);
-  }
-
-  .button::before {
+  .text {
+    font-size: 0.7em;
+    width: 100px;
     position: absolute;
-    bottom: -20px;
-    content: "Back to Top";
     color: white;
-    /* transition-duration: .3s; */
-    font-size: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: -18px;
+    opacity: 0;
+    transition-duration: .7s;
   }
 
-  .button:hover::before {
-    font-size: 13px;
+  .Btn:hover .text {
     opacity: 1;
-    bottom: unset;
-    /* transform: translateY(-30px); */
-    transition-duration: 0.3s;
+    transition-duration: .7s;
+  }
+
+  .Btn:hover .arrow {
+    animation: slide-in-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+  @keyframes slide-in-bottom {
+    0% {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }`;
 
-export default ToTop;
+export default ToTp;

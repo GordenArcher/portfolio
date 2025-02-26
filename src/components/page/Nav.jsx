@@ -1,30 +1,21 @@
 import { Link } from "react-router-dom"
 import HamburgerToggle from "../Hamburger"
 import SocialLinks from "../SocialLinks"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
+import propTypes from 'prop-types'
 
-const Nav = () => {
+const Nav = ({ showNav }) => {
     
     const [showSide, setShowSide] = useState(false)
+
 
     const openSide = useCallback(() => {
         setShowSide((prevState) => !prevState);
     }, []);
 
-    useEffect(() => {
-        const removeClick = () => {
-            setShowSide((prevState) => !prevState)
-        }
-
-        document.addEventListener("click", removeClick)
-
-        return () => {
-            document.removeEventListener("click", removeClick)
-        } 
-    }, [setShowSide])
 
   return (
-    <div className="w-full h-[120px]">
+    <div className={`w-full z-9 ${showNav ? "fixed top-0 left-0 w-full bg-slate-700 shadow-lg transition-all transform translate-y-0" : ""} h-[120px]`}>
         <nav className="w-full h-full m-1  md:!p-[30px] flex justify-center items-center">
             <div className="w-full h-full relative flex  items-center justify-between gap-1">
                 <div className="text-xl !p-[10px] text-gray-800" data-aos="fade-right">
@@ -77,6 +68,10 @@ const Nav = () => {
         </nav>
     </div>
   )
+}
+
+Nav.propTypes = {
+    showNav: propTypes.bool
 }
 
 export default Nav
