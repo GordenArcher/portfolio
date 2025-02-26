@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import PropType  from 'prop-types'
 
-const HamburgerToggle = ({ setshowSide }) => {
+const HamburgerToggle = ({ openSide }) => {
   return (
     <StyledWrapper>
       <div>
         <input type="checkbox" id="checkbox" />
-        <label htmlFor="checkbox" onClick={() => setshowSide((prevState) => !prevState)} className="toggle">
+        <label htmlFor="checkbox" onClick={openSide} className="toggle">
           <div className="bars" id="bar1" />
           <div className="bars" id="bar2" />
           <div className="bars" id="bar3" />
@@ -17,7 +17,7 @@ const HamburgerToggle = ({ setshowSide }) => {
 };
 
 HamburgerToggle.propTypes = {
-    setshowSide: PropType.func
+    openSide: PropType.func
 }
 
 const StyledWrapper = styled.div`

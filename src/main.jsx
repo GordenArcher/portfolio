@@ -32,7 +32,7 @@ const Main = () => {
   );
 };
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('Gorden')).render(
   <StrictMode>
     <Main />
   </StrictMode>
