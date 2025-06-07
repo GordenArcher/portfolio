@@ -1,52 +1,71 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import './App.css'
-import Hero from './pages/Hero'
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from 'react';
-import Footer from './components/page/Footer';
-import Nav from './components/page/Nav';
+import { useCallback, useEffect, useState } from 'react';
+import Footer from './layouts/Footer';
+import Nav from './layouts/Nav';
 import Contact from './pages/Contact';
+import NotFound from './pages/404';
+import Home from './pages/Home';
+import { About } from './pages/About';
+import { PanelLeftClose } from 'lucide-react';
+import Project from './pages/Project';
+import Resume from './pages/Resume';
 
 function App() {
   const [showNav, setShowNav] = useState(false);
 
-useEffect(() => {
-  AOS.init({ duration: 1000 });
-}, []);
-
-
   useEffect(() => {
-    const handleScroll = () => {
-        if (window.scrollY > 100) {
-            setShowNav(true);
-        } else {
-            setShowNav(false);
-        }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-        window.removeEventListener("scroll", handleScroll);
-    };
+    AOS.init({ duration: 1000 });
   }, []);
 
 
+  const location = useLocation()
+
+  useEffect(() => {
+      setShowNav(false);
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, [location])
+
+
+
+
+    const openSide = useCallback(() => {
+        setShowNav((prevState) => !prevState);
+    }, []);
+
   return (
-    <>  
-    <div className={` w-full`} id="home">
+    <div className='w-full h-screen bg-slate-950 relative flex '>  
       <Nav showNav={showNav} />
+
+      <div className='w-full flex flex-col justify-between bg-gray-900 rounded-l-2xl !mt-6 border-l-gray-600'>
+        <main className="flex-1 !px-4 !py-6 overflow-y-auto">
+          <div className="max-w-4xl w-full !mx-auto !py-20 !px-4 md:px-10">
+            <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Project />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+        </main>
+
+        <Footer />
+      </div>
+
+      <div className='fixed z-90 right-[40px] bottom-[80px] md:hidden'>
+        <button onClick={openSide} className='w-12 h-12 rounded-full border bg-slate-950 flex items-center justify-center'>
+          <PanelLeftClose size={20} className='text-gray-100' />
+        </button>
+      </div>
     </div>
-
-    <Routes>
-      <Route path='/' element={ <Hero /> } />
-      <Route path='/contact' element={ <Contact /> } />
-      <Route path='*' element={ <Hero /> } />
-    </Routes>
-
-    <Footer />
-    </>
   )
 }
 

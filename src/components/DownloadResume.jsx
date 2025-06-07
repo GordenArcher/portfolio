@@ -1,14 +1,12 @@
+import { Download } from 'lucide-react';
 import styled from 'styled-components';
 
 const DownloadResume = () => {
   return (
     <StyledWrapper>
-      <a href='/resume.pdf' download className="!font-extrabold">
-        <button className="button flex gap-2 items-center">
-            <span className='max-sm:text-sm'>
-              Download Resume
-            </span>
-           <i className='bi bi-download'></i>
+      <a href='/Gorden_Resume.pdf' download className="!font-extrabold">
+        <button className="button cursor-pointer items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-500 hover:to-blue-600 text-white !px-5 !py-2 rounded-2xl shadow-md transition duration-300 ease-in-out transform hover:scale-105 active:scale-95">
+           <Download />
         </button>
       </a>
     </StyledWrapper>
@@ -17,8 +15,8 @@ const DownloadResume = () => {
 
 const StyledWrapper = styled.div`
   .button {
-   --color: #b05cff;
-   padding: 0.8em 1.7em;
+   --color: #0a0415;
+   padding: 0.8em 1.5em;
    background-color: transparent;
    border-radius: .3em;
    position: relative;
@@ -27,7 +25,7 @@ const StyledWrapper = styled.div`
    transition: .5s;
    font-weight: 400;
    font-size: 17px;
-   border: 1px solid;
+   border: 1px solid none;
    font-family: inherit;
    text-transform: uppercase;
    color: var(--color);
